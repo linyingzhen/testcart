@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>testcart</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="static/css/reset.css">
+    <script>
+    !function(){function d(){a=document.documentElement.clientWidth,a>1024&&(a=1024),a>768&&1024>a&&(a=768),320>a&&(a=320),b=(625*a/c).toFixed(2),document.documentElement.style.fontSize=b+"%"}var a,b,c;c=750,d(),window.addEventListener("resize",d,!1)}();
+    </script>
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="./static/layer_mobile/layer.js"></script>
+
+</head>
+
+<body>
+    <script>
+    var foodsData;
+    $.ajaxSettings.async = false;
+    $.getJSON("./static/data.json", function(json) {
+    	foodsData=json;
+    	// console.log(foodsData)
+    });
+    </script>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+
+
+
+    <script>
+        //商品左侧列表加class
+    $(function(){
+        var $left_li=$(".menu-wrapper li");
+        $left_li.addClass("menu-item");
+        $left_li.eq(0).addClass("menu-item-selected");
+        $left_li.on('click',function(){
+            $left_li.addClass("menu-item");
+            $left_li.removeClass("menu-item-selected");
+            $(this).addClass("menu-item-selected");
+        })
+    })
+
+
+    // 单品页多规格列表点击切换效果 暂时做不了
+    // $(function(){
+    //     var $dggbtnsj=$(".dggbtnsj");
+    //     var $dgg=$(".dgg");
+    //     $dgg.removeClass('dgg2show')
+    //     console.log($dgg)
+    //     $dggbtnsj.each(function(){
+    //         var $index=$(this).index();
+    //         $(this).click(function(){
+    //             $dggbtnsj.removeClass('dggbtnsjon')
+    //             $dgg.removeClass('dgg2show')
+    //             $(this).addClass('dggbtnsjon');
+    //             $dgg.eq($index).addClass('dgg2show');
+
+    //         })
+    //     })
+
+    // })
+
+
+    </script>
+</body>
+
+</html>
